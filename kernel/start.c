@@ -50,6 +50,9 @@ void start() {
 
   if (cpuid() == 0) {
     // init uart and printf
+
+    printf("[210110121] in start, init driver, interrupts and change mode\n");
+
     consoleinit();
     printfinit();
   }

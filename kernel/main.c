@@ -9,7 +9,7 @@ volatile static int started = 0;
 // start() jumps here in supervisor mode on all CPUs.
 void main() {
   if (cpuid() == 0) {
-    // consoleinit();
+    printf("[210110121] enter main, initial kernal\n");// consoleinit();
     // printfinit();
     printf("\n");
     printf("xv6 kernel is booting\n");

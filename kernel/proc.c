@@ -183,6 +183,8 @@ uchar initcode[] = {0x17, 0x05, 0x00, 0x00, 0x13, 0x05, 0x45, 0x02, 0x97, 0x05, 
 
 // Set up first user process.
 void userinit(void) {
+  printf("[210110121] enter userinit\n");
+  
   struct proc *p;
 
   p = allocproc();
@@ -196,6 +198,8 @@ void userinit(void) {
   // prepare for the very first "return" from kernel to user.
   p->trapframe->epc = 0;      // user program counter
   p->trapframe->sp = PGSIZE;  // user stack pointer
+
+  printf("[210110121] copy initcode to first user process\n");
 
   safestrcpy(p->name, "initcode", sizeof(p->name));
   p->cwd = namei("/");
